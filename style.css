@@ -1,0 +1,253 @@
+/* ==========================================================================
+   HandaPH - shared stylesheet (HTML5 + CSS3 only, no frameworks, no JavaScript)
+   --------------------------------------------------------------------------
+   Contents
+   1. Design tokens (colour scheme, type scale, spacing)
+   2. Base / reset
+   3. Accessibility helpers (skip link, focus, reduced motion)
+   4. Header and navigation (CSS-only dropdowns using <details>)
+   5. Layout (main, sections, grids)
+   6. Components (hero, cards, notes, figures, video, tables, lists, forms)
+   7. Footer
+   8. Responsive rules
+   9. Print rules
+   ========================================================================== */
+
+/* ---------- 1. Design tokens ---------------------------------------------
+   Contrast ratios (WCAG 2.x) are listed on accessibility.html.
+   Navy on pale blue ..... 12.3:1   White on navy ..... 14.6:1
+   Navy on yellow ........ 8.8:1    Blue links on white  6.6:1
+   ------------------------------------------------------------------------ */
+:root {
+  --navy: #0b2a5b;        /* primary: headers, text, trust and calm            */
+  --blue: #1d5ba6;        /* secondary: links, borders, hover states            */
+  --yellow: #fbc12c;      /* accent: calls to action, current page, warnings    */
+  --sky: #eef4fb;         /* page background                                    */
+  --white: #ffffff;       /* card surfaces                                      */
+  --cream: #fff8e1;       /* note / warning background                          */
+  --red: #b3261e;         /* danger text (6.6:1 on white)                       */
+  --green: #1b6b3a;       /* safe / done (6.3:1 on white)                       */
+  --line: #9db8dd;        /* soft borders                                       */
+
+  --font: "Segoe UI", Roboto, "Helvetica Neue", Verdana, Arial, sans-serif;
+  --radius: 12px;
+  --maxw: 1100px;
+}
+
+/* ---------- 2. Base / reset ---------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { font-size: 112.5%; scroll-behavior: smooth; }           /* 18px base for easy reading */
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--navy);
+  background: var(--sky);
+  line-height: 1.6;
+}
+img, video, svg { max-width: 100%; height: auto; }
+h1, h2, h3, h4 { line-height: 1.25; margin: 0 0 .5rem; }
+h1 { font-size: 2.1rem; font-weight: 800; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.15rem; }
+p { margin: 0 0 1rem; max-width: 70ch; }
+a { color: var(--blue); text-underline-offset: 3px; }
+a:hover { color: var(--navy); }
+strong { font-weight: 700; }
+abbr[title] { text-decoration: underline dotted; cursor: help; }
+
+/* ---------- 3. Accessibility helpers ------------------------------------- */
+.skip-link {
+  position: absolute; left: 12px; top: -80px; z-index: 100;
+  background: var(--yellow); color: var(--navy); font-weight: 700;
+  padding: 10px 16px; border: 3px solid var(--navy); border-radius: 8px;
+}
+.skip-link:focus { top: 12px; }
+
+/* One strong, consistent keyboard focus ring everywhere */
+a:focus-visible, button:focus-visible, summary:focus-visible,
+input:focus-visible, textarea:focus-visible, select:focus-visible, video:focus-visible {
+  outline: 4px solid var(--yellow);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 7px var(--navy);
+}
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* ---------- 4. Header and navigation ------------------------------------- */
+.site-header { background: var(--navy); color: var(--white); padding: 14px 20px 12px; position: relative; z-index: 20; }
+.header-inner { max-width: var(--maxw); margin: 0 auto; }
+.brand { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin: 0 0 10px; }
+.brand a { color: var(--white); text-decoration: none; font-size: 1.7rem; font-weight: 800; letter-spacing: .5px; }
+.brand a:hover { color: var(--yellow); }
+.brand span { color: var(--yellow); font-size: 1rem; }
+
+.nav { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.nav > li { position: relative; }
+.nav a, .nav summary {
+  display: block; padding: 7px 14px; border: 2px solid var(--white); border-radius: 8px;
+  color: var(--white); text-decoration: none; font-size: .95rem; cursor: pointer; list-style: none;
+  background: transparent;
+}
+.nav summary::-webkit-details-marker { display: none; }
+.nav summary::after { content: " \25BE"; }                      /* small down-arrow */
+.nav details[open] > summary::after { content: " \25B4"; }      /* small up-arrow   */
+.nav a:hover, .nav summary:hover { background: var(--blue); }
+.nav a[aria-current="page"] { background: var(--yellow); border-color: var(--yellow); color: var(--navy); font-weight: 700; }
+.nav summary.current { border-color: var(--yellow); box-shadow: inset 0 -4px 0 var(--yellow); }
+
+/* dropdown panel */
+.nav details ul {
+  list-style: none; margin: 6px 0 0; padding: 8px; background: var(--white);
+  border: 3px solid var(--yellow); border-radius: 10px; min-width: 230px;
+  position: absolute; left: 0; top: 100%; box-shadow: 0 8px 20px rgba(0, 0, 0, .3);
+}
+.nav details ul a { border: 0; color: var(--navy); padding: 8px 12px; border-radius: 6px; }
+.nav details ul a:hover { background: var(--sky); color: var(--navy); }
+.nav details ul a[aria-current="page"] { background: var(--yellow); }
+
+/* ---------- 5. Layout ---------------------------------------------------- */
+main { max-width: var(--maxw); margin: 0 auto; padding: 24px 20px 40px; }
+main > section, main > article { margin-bottom: 28px; }
+.page-intro { font-size: 1.2rem; font-weight: 600; max-width: 62ch; }
+.lead { font-size: 1.2rem; font-weight: 700; margin-top: 0; }
+.crumbs { font-size: .9rem; margin: 0 0 8px; }
+.crumbs a { font-weight: 600; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin-bottom: 22px; }
+.grid.two { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.split { display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; align-items: center; }
+
+/* ---------- 6. Components ------------------------------------------------ */
+/* Hero on the home page */
+.hero { display: grid; grid-template-columns: 1fr 1.05fr; gap: 32px; align-items: center; padding: 8px 0 12px; }
+.hero h1 { font-size: 2.8rem; margin-bottom: .6rem; }
+.hero .tagline { font-size: 1.25rem; font-weight: 600; }
+.hero figure { margin: 0; position: relative; }
+.hero figure::before { content: ""; position: absolute; inset: 14px -14px -14px 14px; background: var(--yellow); border-radius: var(--radius); z-index: 0; }
+.hero img { position: relative; z-index: 1; display: block; width: 100%; border: 4px solid var(--navy); border-radius: var(--radius); background: var(--white); }
+
+/* Boxes / cards */
+.box { background: var(--white); border: 2px solid var(--blue); border-radius: var(--radius); padding: 18px; }
+.box h2, .box h3 { margin-top: 0; }
+.box ul, .box ol { margin: 8px 0 0; padding-left: 22px; }
+.box li { margin-bottom: 6px; }
+.box p:last-child { margin-bottom: 0; }
+.card { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.card img { display: block; width: 100%; border-bottom: 2px solid var(--blue); background: var(--sky); }
+.card .card-body { padding: 16px 18px 18px; display: flex; flex-direction: column; flex: 1; }
+.card .card-body p { flex: 1; }
+.card-link { font-weight: 700; }
+
+/* Notes and alerts - never rely on colour alone, so each has a text label */
+.note { background: var(--cream); border: 2px solid var(--yellow); border-radius: var(--radius); padding: 12px 18px; font-weight: 600; }
+.note strong:first-child { color: var(--red); }
+.emergency { background: var(--navy); color: var(--white); border-radius: var(--radius); padding: 16px 20px; display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; justify-content: space-between; }
+.emergency p { margin: 0; font-size: 1.15rem; font-weight: 700; }
+.emergency a { color: var(--yellow); }
+.big-number { font-size: 2.6rem; font-weight: 800; color: var(--yellow); line-height: 1; }
+
+/* Buttons and button-like links (real links, work without JavaScript) */
+.btn { display: inline-block; background: var(--yellow); color: var(--navy); border: 3px solid var(--navy); border-radius: 8px; padding: 10px 20px; font-weight: 800; text-decoration: none; font-size: 1rem; }
+.btn:hover { background: var(--navy); color: var(--yellow); }
+.btn.secondary { background: var(--white); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+
+/* Figures */
+figure { margin: 0 0 20px; }
+figure img { display: block; width: 100%; border: 2px solid var(--blue); border-radius: var(--radius); background: var(--white); }
+figcaption { font-size: .85rem; margin-top: 6px; }
+
+/* Video */
+.video-box { background: var(--white); border: 2px solid var(--blue); border-radius: var(--radius); padding: 14px; }
+.video-box video { display: block; width: 100%; border-radius: 8px; background: #000; aspect-ratio: 16 / 9; }
+.video-box h2, .video-box h3 { margin: 0 0 8px; }
+.video-box details { margin-top: 10px; }
+.video-box summary { cursor: pointer; font-weight: 700; color: var(--blue); }
+.video-box details ol { margin: 8px 0 0; padding-left: 22px; }
+.video-credit { font-size: .85rem; margin: 8px 0 0; }
+
+/* Numbered steps (a real sequence, so numbering is meaningful) */
+.steps { counter-reset: step; list-style: none; padding: 0; margin: 0; }
+.steps li { counter-increment: step; position: relative; padding: 4px 0 14px 54px; }
+.steps li::before {
+  content: counter(step); position: absolute; left: 0; top: 0; width: 38px; height: 38px;
+  background: var(--yellow); color: var(--navy); border: 3px solid var(--navy); border-radius: 50%;
+  display: grid; place-items: center; font-weight: 800;
+}
+
+/* Tables */
+.table-wrap { overflow-x: auto; margin-bottom: 20px; border: 2px solid var(--blue); border-radius: var(--radius); background: var(--white); }
+table { border-collapse: collapse; width: 100%; min-width: 520px; }
+caption { text-align: left; font-weight: 800; padding: 12px 14px 4px; font-size: 1.05rem; }
+th, td { text-align: left; padding: 10px 14px; border-top: 1px solid var(--line); vertical-align: top; }
+thead th { background: var(--navy); color: var(--white); border-top: 0; }
+tbody th { background: var(--sky); }
+.swatch { display: inline-block; width: 1.1em; height: 1.1em; border: 2px solid var(--navy); border-radius: 4px; vertical-align: -.2em; margin-right: 8px; }
+
+/* Checklists */
+.checks { list-style: none; padding-left: 0 !important; }
+.checks li { display: flex; gap: 10px; align-items: flex-start; }
+.checks input[type="checkbox"] { width: 24px; height: 24px; margin-top: 3px; flex: none; accent-color: var(--blue); }
+.checks label { cursor: pointer; }
+
+/* Forms */
+fieldset { border: 2px solid var(--blue); border-radius: var(--radius); padding: 14px 18px 8px; margin: 0 0 20px; background: var(--white); }
+legend { font-weight: 800; padding: 0 8px; font-size: 1.1rem; }
+label { font-weight: 600; }
+.field { margin-bottom: 12px; }
+.field label { display: block; margin-bottom: 4px; }
+input[type="text"], input[type="tel"], input[type="email"], input[type="number"], textarea, select {
+  width: 100%; border: 2px solid var(--blue); border-radius: 8px; padding: 8px 10px; font: inherit; color: var(--navy); background: var(--white);
+}
+.form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+
+/* Definition lists (glossary) */
+dl.glossary dt { font-weight: 800; margin-top: 14px; }
+dl.glossary dd { margin: 2px 0 0 0; max-width: 70ch; }
+
+/* Link list used on the sitemap and in "related pages" */
+.link-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.link-list a { display: inline-block; background: var(--white); border: 2px solid var(--blue); border-radius: 999px; padding: 6px 16px; font-weight: 600; text-decoration: none; }
+.link-list a:hover { background: var(--navy); color: var(--white); }
+
+/* Gallery */
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+
+/* ---------- 7. Footer ---------------------------------------------------- */
+.site-footer { background: var(--navy); color: var(--white); padding: 28px 20px 20px; }
+.footer-inner { max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 24px; }
+.site-footer h2 { font-size: 1.05rem; color: var(--yellow); }
+.site-footer ul { list-style: none; padding: 0; margin: 0; }
+.site-footer li { margin-bottom: 4px; }
+.site-footer a { color: var(--white); }
+.site-footer a:hover { color: var(--yellow); }
+.site-footer p { max-width: none; }
+.copyright { max-width: var(--maxw); margin: 20px auto 0; padding-top: 14px; border-top: 1px solid var(--blue); text-align: center; font-size: .9rem; }
+
+/* ---------- 8. Responsive rules ------------------------------------------ */
+@media (max-width: 860px) {
+  .hero, .split { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 2.2rem; }
+  .footer-inner { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+  /* On small screens dropdowns open inline instead of floating over the page */
+  .nav { flex-direction: column; gap: 6px; }
+  .nav > li { width: 100%; }
+  .nav details ul { position: static; box-shadow: none; min-width: 0; }
+  h1 { font-size: 1.7rem; }
+  main { padding: 18px 14px 32px; }
+}
+
+/* ---------- 9. Print rules (checklists and plans are meant to be printed) - */
+@media print {
+  body { background: #fff; font-size: 12pt; }
+  .site-header, .site-footer, .skip-link, .btn-row, .video-box, .no-print { display: none !important; }
+  .box, fieldset, .table-wrap { border-color: #000; break-inside: avoid; }
+  a { color: #000; }
+}

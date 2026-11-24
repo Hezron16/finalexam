@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A printable family emergency plan: contacts, meeting points, evacuation centre and household member needs.">
+  <title>Family Plan | HandaPH</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Skip link: lets keyboard and screen-reader users jump past the menu -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="brand"><a href="index.html">HandaPH</a> <span>Be Prepared. Stay Safe.</span></p>
+      <nav aria-label="Main"><ul class="nav">
+      <li><a href="index.html">Home</a></li>
+      <li><details name="nav"><summary>Hazards</summary><ul>
+      <li><a href="hazards.html">Choose a Hazard</a></li>
+      <li><a href="typhoon.html">Typhoon</a></li>
+      <li><a href="flood.html">Flood</a></li>
+      <li><a href="earthquake.html">Earthquake</a></li>
+      <li><a href="fire.html">Fire</a></li>
+      <li><a href="volcano.html">Volcano</a></li>
+      </ul></details></li>
+      <li><details name="nav"><summary class="current">Prepare</summary><ul>
+      <li><a href="checklist.html">My Checklist</a></li>
+      <li><a href="kit-guide.html">Kit Guide</a></li>
+      <li><a href="family-plan.html" aria-current="page">Family Plan</a></li>
+      <li><a href="evacuation.html">Evacuation Guide</a></li>
+      </ul></details></li>
+      <li><details name="nav"><summary>Community</summary><ul>
+      <li><a href="inclusive.html">Inclusive Preparedness</a></li>
+      <li><a href="schools-work.html">Schools and Workplaces</a></li>
+      <li><a href="community.html">Barangay and Community</a></li>
+      <li><a href="contacts.html">Emergency Contacts</a></li>
+      </ul></details></li>
+      <li><details name="nav"><summary>Media</summary><ul>
+      <li><a href="videos.html">Videos</a></li>
+      <li><a href="gallery.html">Image Gallery</a></li>
+      </ul></details></li>
+      <li><details name="nav"><summary>About</summary><ul>
+      <li><a href="about.html">About and Help</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+      <li><a href="accessibility.html">Accessibility</a></li>
+      <li><a href="references.html">References</a></li>
+      <li><a href="sitemap.html">Sitemap</a></li>
+      </ul></details></li>
+      </ul></nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <h1>Family Emergency Plan</h1>
+    <p class="page-intro">Fill in the fields below with every member of your household, then print this page (Ctrl+P or Cmd+P) and keep copies in your go-bag. This page does not save or send what you type, so your information stays private on your device.</p>
+    <section class="split" aria-labelledby="mp">
+      <div><h2 id="mp">Why a plan matters</h2><p>When disaster strikes, family members may be at work, school or market. A plan that everyone knows tells each person where to go and who to call. Include children and older relatives when you make it.</p></div>
+      <figure><img src="images/family-plan-map.svg" alt="A simple neighbourhood map showing a home, a meeting point at a basketball court and an evacuation centre, linked by dashed green and orange routes." width="800" height="450" loading="lazy"><figcaption>A simple neighbourhood map showing a home, a meeting point at a basketball court and an evacuation centre, linked by dashed green and orange routes. Illustration: original work for HandaPH (see <a href="references.html#media">credits</a>).</figcaption></figure>
+    </section>
+    <form action="#">
+      <fieldset><legend>Emergency contacts</legend><div class="form-row"><div class="field"><label for="cn1">Name</label><input type="text" id="cn1" name="cn1" placeholder=""></div><div class="field"><label for="cr1">Relationship</label><input type="text" id="cr1" name="cr1" placeholder=""></div><div class="field"><label for="cp1">Phone number</label><input type="tel" id="cp1" name="cp1" placeholder=""></div></div><div class="form-row"><div class="field"><label for="cn2">Name</label><input type="text" id="cn2" name="cn2" placeholder=""></div><div class="field"><label for="cr2">Relationship</label><input type="text" id="cr2" name="cr2" placeholder=""></div><div class="field"><label for="cp2">Phone number</label><input type="tel" id="cp2" name="cp2" placeholder=""></div></div><div class="form-row"><div class="field"><label for="cn3">Name</label><input type="text" id="cn3" name="cn3" placeholder=""></div><div class="field"><label for="cr3">Relationship</label><input type="text" id="cr3" name="cr3" placeholder=""></div><div class="field"><label for="cp3">Phone number</label><input type="tel" id="cp3" name="cp3" placeholder=""></div></div></fieldset>
+      <fieldset><legend>Meeting points and evacuation</legend>
+        <div class="field"><label for="m1">Meeting point near our home</label><input type="text" id="m1" name="m1" placeholder="e.g. barangay basketball court"></div>
+        <div class="field"><label for="m2">Meeting point outside our neighbourhood</label><input type="text" id="m2" name="m2" placeholder="Street, barangay, city"></div>
+        <div class="field"><label for="m3">Our evacuation centre</label><input type="text" id="m3" name="m3" placeholder="Name and address"></div>
+        <div class="field"><label for="m4">Notes about our route (barriers, bridges, steep paths)</label><textarea id="m4" name="m4" rows="3"></textarea></div>
+        <p><a href="https://www.openstreetmap.org/#map=12/14.60/121.00">Open a map in a new page</a> (external link) to look at your area.</p>
+      </fieldset>
+      <fieldset><legend>Household members</legend><div class="form-row"><div class="field"><label for="mn1">Name</label><input type="text" id="mn1" name="mn1" placeholder=""></div><div class="field"><label for="ma1">Age</label><input type="number" id="ma1" name="ma1" placeholder=""></div><div class="field"><label for="mx1">Special needs or medicines</label><input type="text" id="mx1" name="mx1" placeholder=""></div></div><div class="form-row"><div class="field"><label for="mn2">Name</label><input type="text" id="mn2" name="mn2" placeholder=""></div><div class="field"><label for="ma2">Age</label><input type="number" id="ma2" name="ma2" placeholder=""></div><div class="field"><label for="mx2">Special needs or medicines</label><input type="text" id="mx2" name="mx2" placeholder=""></div></div><div class="form-row"><div class="field"><label for="mn3">Name</label><input type="text" id="mn3" name="mn3" placeholder=""></div><div class="field"><label for="ma3">Age</label><input type="number" id="ma3" name="ma3" placeholder=""></div><div class="field"><label for="mx3">Special needs or medicines</label><input type="text" id="mx3" name="mx3" placeholder=""></div></div></fieldset>
+    </form>
+    <section aria-labelledby="fv"><h2 id="fv">Watch: make your plan</h2><div class="video-box">
+  <h3>Make Your Family Emergency Plan</h3>
+  <video controls preload="metadata" poster="images/posters/family-meeting-plan.jpg" aria-label="Make Your Family Emergency Plan. How to build a plan the whole household understands.">
+    <source src="videos/family-meeting-plan.mp4" type="video/mp4">
+    <track kind="captions" src="captions/family-meeting-plan.vtt" srclang="en" label="English">
+    <p>Your browser cannot play this video. <a href="videos/family-meeting-plan.mp4">Download the video</a> or read the transcript below.</p>
+  </video>
+  <p class="video-credit">How to build a plan the whole household understands. About 25 seconds, no sound; the steps appear as large on-screen text. Original animation made for HandaPH (see <a href="references.html#media">credits</a>).</p>
+  <details><summary>Read the transcript (text version)</summary><ol><li>Talk together: include children and older family members.</li><li>Pick meeting points: one near home and one outside your neighbourhood.</li><li>List contacts: write family, barangay and emergency numbers on paper as a backup.</li><li>Learn the routes: walk the way to your evacuation centre and note any barriers.</li><li>Practice twice a year: rehearse and update the plan when your household changes.</li></ol></details>
+</div></section>
+    <section aria-labelledby="rel"><h2 id="rel">Related pages</h2><ul class="link-list"><li><a href="evacuation.html">Evacuation guide</a></li><li><a href="inclusive.html">Inclusive preparedness</a></li><li><a href="contacts.html">Emergency contacts</a></li><li><a href="checklist.html">My checklist</a></li></ul></section>
+  </main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h2>HandaPH</h2>
+      <p><em lang="fil">Handa</em> means &ldquo;ready&rdquo; in Filipino. HandaPH helps Filipino families, schools and communities prepare for typhoons, floods, earthquakes, fires and volcanic eruptions. It supports UN Sustainable Development Goal 11: Sustainable Cities and Communities.</p>
+    </div>
+    <div>
+      <h2>Quick links</h2>
+      <ul>
+        <li><a href="hazards.html">Choose a hazard</a></li>
+        <li><a href="checklist.html">My checklist</a></li>
+        <li><a href="family-plan.html">Family plan</a></li>
+        <li><a href="contacts.html">Emergency contacts</a></li>
+        <li><a href="videos.html">Videos</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Official sources</h2>
+      <ul>
+        <li><a href="https://www.pagasa.dost.gov.ph/">PAGASA (weather)</a></li>
+        <li><a href="https://www.phivolcs.dost.gov.ph/">PHIVOLCS (quakes, volcanoes)</a></li>
+        <li><a href="https://ndrrmc.gov.ph/">NDRRMC (national updates)</a></li>
+        <li><a href="references.html">References and credits</a></li>
+        <li><a href="accessibility.html">Accessibility statement</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="copyright">HandaPH &middot; Prepared Today. Safer Tomorrow. &middot; Student project for HUMCOM 1, School of Information Technology, University of Baguio &middot; In an emergency, call 911.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="HandaPH accessibility statement: features, keyboard tips, colour contrast results and how to report a barrier.">
+  <title>Accessibility | HandaPH</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Skip link: lets keyboard and screen-reader users jump past the menu -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="brand"><a href="index.html">HandaPH</a> <span>Be Prepared. Stay Safe.</span></p>
+      <nav aria-label="Main"><ul class="nav">
+      <li><a href="index.html">Home</a></li>
+      <li><details name="nav"><summary>Hazards</summary><ul>
+      <li><a href="hazards.html">Choose a Hazard</a></li>
+      <li><a href="typhoon.html">Typhoon</a></li>
+      <li><a href="flood.html">Flood</a></li>
+      <li><a href="earthquake.html">Earthquake</a></li>
+      <li><a href="fire.html">Fire</a></li>
+      <li><a href="volcano.html">Volcano</a></li>
+      </ul></details></li>
+      <li><details name="nav"><summary>Prepare</summary><ul>
+      <li><a href="checklist.html">My Checklist</a></li>
+      <li><a href="kit-guide.html">Kit Guide</a></li>
+      <li><a href="family-plan.html">Family Plan</a></li>
+      <li><a href="evacuation.html">Evacuation Guide</a></li>
+      </ul></details></li>
+      <li><details name="nav"><summary>Community</summary><ul>
+      <li><a href="inclusive.html">Inclusive Preparedness</a></li>
+      <li><a href="schools-work.html">Schools and Workplaces</a></li>
+      <li><a href="community.html">Barangay and Community</a></li>
+      <li><a href="contacts.html">Emergency Contacts</a></li>
+      </ul></details></li>
+      <li><details name="nav"><summary>Media</summary><ul>
+      <li><a href="videos.html">Videos</a></li>
+      <li><a href="gallery.html">Image Gallery</a></li>
+      </ul></details></li>
+      <li><details name="nav"><summary class="current">About</summary><ul>
+      <li><a href="about.html">About and Help</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+      <li><a href="accessibility.html" aria-current="page">Accessibility</a></li>
+      <li><a href="references.html">References</a></li>
+      <li><a href="sitemap.html">Sitemap</a></li>
+      </ul></details></li>
+      </ul></nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <h1>Accessibility Statement</h1>
+    <p class="page-intro">HandaPH is built so that people with different abilities, devices and connections can use it. We aim for WCAG 2.1 level AA.</p>
+    <div class="grid two">
+      <section class="box"><h2>What we did</h2><ul>
+        <li>Semantic HTML5 landmarks: header, nav, main and footer on every page.</li>
+        <li>A &ldquo;Skip to main content&rdquo; link on every page.</li>
+        <li>Meaningful alt text on every image; decorative shapes are hidden from screen readers.</li>
+        <li>Full keyboard use with a bright, visible focus outline.</li>
+        <li>Menus built with native <code>details</code> elements, so they work without JavaScript.</li>
+        <li>Video captions (WebVTT) and a written transcript for every video.</li>
+        <li>Form fields have visible labels; tables have captions and header cells.</li>
+        <li>Responsive layout, readable 18-pixel base text and respect for reduced-motion settings.</li></ul></section>
+      <section class="box"><h2>Keyboard tips</h2><ul>
+        <li><strong>Tab</strong> moves to the next link or control; <strong>Shift + Tab</strong> goes back.</li>
+        <li><strong>Enter</strong> opens a link; <strong>Enter</strong> or <strong>Space</strong> opens a menu or transcript.</li>
+        <li>Use your browser zoom (Ctrl and +) to enlarge text up to 200%.</li>
+        <li>Use Print (Ctrl+P) for large-print or paper copies of checklists and plans.</li></ul></section>
+    </div>
+    <section aria-labelledby="ct"><h2 id="ct">Colour contrast results</h2>
+      <div class="table-wrap"><table><caption>Contrast ratios for our main colour pairs (WCAG AA needs 4.5:1)</caption>
+      <thead><tr><th scope="col">Pair</th><th scope="col">Ratio</th><th scope="col">Result</th></tr></thead><tbody><tr><th scope="row">Navy text on pale blue page</th><td>12.7:1</td><td>Pass (AAA)</td></tr><tr><th scope="row">White text on navy header</th><td>14.0:1</td><td>Pass (AAA)</td></tr><tr><th scope="row">Navy text on yellow buttons</th><td>8.5:1</td><td>Pass (AAA)</td></tr><tr><th scope="row">Blue links on white cards</th><td>6.8:1</td><td>Pass (AA)</td></tr><tr><th scope="row">Red warning label on cream note</th><td>6.2:1</td><td>Pass (AA)</td></tr><tr><th scope="row">Green on white</th><td>6.5:1</td><td>Pass (AA)</td></tr></tbody></table></div></section>
+    <section class="box"><h2>Known limits and feedback</h2><p>Our videos have no spoken audio. Checklist ticks and form entries are not saved when you leave a page. If you find a barrier, email support@handaph.example and tell us the page and the problem.</p></section>
+    <br>
+    <section aria-labelledby="rel"><h2 id="rel">Related pages</h2><ul class="link-list"><li><a href="about.html">About and Help</a></li><li><a href="inclusive.html">Inclusive preparedness</a></li><li><a href="videos.html">Videos</a></li></ul></section>
+  </main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h2>HandaPH</h2>
+      <p><em lang="fil">Handa</em> means &ldquo;ready&rdquo; in Filipino. HandaPH helps Filipino families, schools and communities prepare for typhoons, floods, earthquakes, fires and volcanic eruptions. It supports UN Sustainable Development Goal 11: Sustainable Cities and Communities.</p>
+    </div>
+    <div>
+      <h2>Quick links</h2>
+      <ul>
+        <li><a href="hazards.html">Choose a hazard</a></li>
+        <li><a href="checklist.html">My checklist</a></li>
+        <li><a href="family-plan.html">Family plan</a></li>
+        <li><a href="contacts.html">Emergency contacts</a></li>
+        <li><a href="videos.html">Videos</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Official sources</h2>
+      <ul>
+        <li><a href="https://www.pagasa.dost.gov.ph/">PAGASA (weather)</a></li>
+        <li><a href="https://www.phivolcs.dost.gov.ph/">PHIVOLCS (quakes, volcanoes)</a></li>
+        <li><a href="https://ndrrmc.gov.ph/">NDRRMC (national updates)</a></li>
+        <li><a href="references.html">References and credits</a></li>
+        <li><a href="accessibility.html">Accessibility statement</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="copyright">HandaPH &middot; Prepared Today. Safer Tomorrow. &middot; Student project for HUMCOM 1, School of Information Technology, University of Baguio &middot; In an emergency, call 911.</p>
+</footer>
+</body>
+</html>
